@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        //be sure to replace "kakrahanson" with your own Docker Hub username
+        DOCKER_IMAGE_NAME = "kakrahanson/train-schedule"
+    }
     stages {
         stage('Build') {
             steps {
@@ -8,5 +12,3 @@ pipeline {
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
-    }
-}
